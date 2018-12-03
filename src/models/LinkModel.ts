@@ -13,9 +13,7 @@ export interface LinkModelListener extends BaseModelListener {
 	targetPortChanged?(event: BaseEvent & { port: null | PortModel }): void;
 }
 
-export class LinkModel<
-	T extends LinkModelListener = LinkModelListener
-> extends BaseModel<DiagramModel, T> {
+export class LinkModel<T extends LinkModelListener = LinkModelListener> extends BaseModel<DiagramModel, T> {
 	sourcePort: PortModel | null;
 	targetPort: PortModel | null;
 	labels: LabelModel[];
@@ -24,10 +22,7 @@ export class LinkModel<
 
 	constructor(linkType: string = "default", id?: string) {
 		super(linkType, id);
-		this.points = [
-			new PointModel(this, { x: 0, y: 0 }),
-			new PointModel(this, { x: 0, y: 0 })
-		];
+		this.points = [new PointModel(this, { x: 0, y: 0 }), new PointModel(this, { x: 0, y: 0 })];
 		this.extras = {};
 		this.sourcePort = null;
 		this.targetPort = null;
@@ -126,32 +121,20 @@ export class LinkModel<
 	}
 
 	getPortForPoint(point: PointModel): PortModel {
-		if (
-			this.sourcePort !== null &&
-			this.getFirstPoint().getID() === point.getID()
-		) {
+		if (this.sourcePort !== null && this.getFirstPoint().getID() === point.getID()) {
 			return this.sourcePort;
 		}
-		if (
-			this.targetPort !== null &&
-			this.getLastPoint().getID() === point.getID()
-		) {
+		if (this.targetPort !== null && this.getLastPoint().getID() === point.getID()) {
 			return this.targetPort;
 		}
 		return null;
 	}
 
 	getPointForPort(port: PortModel): PointModel {
-		if (
-			this.sourcePort !== null &&
-			this.sourcePort.getID() === port.getID()
-		) {
+		if (this.sourcePort !== null && this.sourcePort.getID() === port.getID()) {
 			return this.getFirstPoint();
 		}
-		if (
-			this.targetPort !== null &&
-			this.targetPort.getID() === port.getID()
-		) {
+		if (this.targetPort !== null && this.targetPort.getID() === port.getID()) {
 			return this.getLastPoint();
 		}
 		return null;

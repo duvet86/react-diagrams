@@ -475,7 +475,9 @@ export class DiagramWidget extends BaseWidget<DiagramProps, DiagramState> {
 					}
 				}}
 				onMouseDown={event => {
-					if (event.nativeEvent.which === 3) return;
+					if (event.nativeEvent.which === 3) {
+						return;
+					}
 					this.setState({ ...this.state, wasMoved: false });
 
 					diagramEngine.clearRepaintEntities();

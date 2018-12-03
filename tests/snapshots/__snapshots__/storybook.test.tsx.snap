@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Tests demos/demo-cloning/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-cloningindex.tsx 1`] = `
 <div
   className="srd-demo-workspace"
 >
@@ -155,7 +155,7 @@ exports[`Storyshots Tests demos/demo-cloning/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-custom-link1/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-custom-link1index.tsx 1`] = `
 <div
   className="srd-diagram srd-demo-canvas "
   onMouseDown={[Function]}
@@ -469,7 +469,7 @@ exports[`Storyshots Tests demos/demo-custom-link1/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-custom-node1/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-custom-node1index.tsx 1`] = `
 <div
   className="srd-diagram srd-demo-canvas "
   onMouseDown={[Function]}
@@ -716,7 +716,7 @@ exports[`Storyshots Tests demos/demo-custom-node1/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-dagre/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-dagreindex.tsx 1`] = `
 <div
   className="srd-demo-workspace"
 >
@@ -1193,7 +1193,7 @@ exports[`Storyshots Tests demos/demo-dagre/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-drag-and-drop/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-drag-and-dropindex.tsx 1`] = `
 <div
   className="body"
 >
@@ -1382,7 +1382,7 @@ exports[`Storyshots Tests demos/demo-drag-and-drop/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-grid/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-gridindex.tsx 1`] = `
 <div
   className="srd-diagram srd-demo-canvas "
   onMouseDown={[Function]}
@@ -1520,7 +1520,7 @@ exports[`Storyshots Tests demos/demo-grid/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-labelled-links/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-labelled-linksindex.tsx 1`] = `
 <div
   className="srd-demo-workspace"
 >
@@ -1787,7 +1787,7 @@ exports[`Storyshots Tests demos/demo-labelled-links/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-limit-points/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-limit-pointsindex.tsx 1`] = `
 <div>
   <p>
     A maximum of 5 points can be created per link.
@@ -1930,7 +1930,7 @@ exports[`Storyshots Tests demos/demo-limit-points/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-listeners/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-listenersindex.tsx 1`] = `
 <div>
   <p>
     Click the diagram elements to inspect some of the possible events.
@@ -2129,7 +2129,7 @@ exports[`Storyshots Tests demos/demo-listeners/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-locks/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-locksindex.tsx 1`] = `
 <div
   className="srd-diagram srd-demo-canvas "
   onMouseDown={[Function]}
@@ -2379,7 +2379,7 @@ exports[`Storyshots Tests demos/demo-locks/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-mutate-graph/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-mutate-graphindex.tsx 1`] = `
 <div
   className="srd-demo-workspace"
 >
@@ -2539,7 +2539,7 @@ exports[`Storyshots Tests demos/demo-mutate-graph/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-performance/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-performanceindex.tsx 1`] = `
 <div
   className="srd-diagram srd-demo-canvas "
   onMouseDown={[Function]}
@@ -9733,7 +9733,7 @@ exports[`Storyshots Tests demos/demo-performance/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-serializing/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-serializingindex.tsx 1`] = `
 <div
   className="srd-demo-workspace"
 >
@@ -9888,145 +9888,7 @@ exports[`Storyshots Tests demos/demo-serializing/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-simple/index.tsx 1`] = `
-<div
-  className="srd-diagram srd-demo-canvas "
-  onMouseDown={[Function]}
-  onWheel={[Function]}
->
-  <svg
-    className="srd-link-layer "
-    style={
-      Object {
-        "transform": "translate(0px,0px) scale(1)",
-      }
-    }
-  />
-  <div
-    className="srd-node-layer "
-    style={
-      Object {
-        "transform": "translate(0px,0px) scale(1)",
-      }
-    }
-  >
-    <div
-      className="node srd-node "
-      data-nodeid="6"
-      style={
-        Object {
-          "left": 100,
-          "top": 100,
-        }
-      }
-    >
-      <div
-        className="srd-default-node "
-        style={
-          Object {
-            "background": "rgb(0,192,255)",
-          }
-        }
-      >
-        <div
-          className="srd-default-node__title "
-        >
-          <div
-            className="srd-default-node__name "
-          >
-            Node 1
-          </div>
-        </div>
-        <div
-          className="srd-default-node__ports "
-        >
-          <div
-            className="srd-default-node__in "
-          />
-          <div
-            className="srd-default-node__out "
-          >
-            <div
-              className="srd-default-port srd-default-port--out "
-            >
-              <div
-                className="name"
-              >
-                Out
-              </div>
-              <div
-                className="port srd-port "
-                data-name="7"
-                data-nodeid="6"
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      className="node srd-node "
-      data-nodeid="9"
-      style={
-        Object {
-          "left": 400,
-          "top": 100,
-        }
-      }
-    >
-      <div
-        className="srd-default-node "
-        style={
-          Object {
-            "background": "rgb(192,255,0)",
-          }
-        }
-      >
-        <div
-          className="srd-default-node__title "
-        >
-          <div
-            className="srd-default-node__name "
-          >
-            Node 2
-          </div>
-        </div>
-        <div
-          className="srd-default-node__ports "
-        >
-          <div
-            className="srd-default-node__in "
-          >
-            <div
-              className="srd-default-port srd-default-port--in "
-            >
-              <div
-                className="port srd-port "
-                data-name="10"
-                data-nodeid="9"
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-              />
-              <div
-                className="name"
-              >
-                In
-              </div>
-            </div>
-          </div>
-          <div
-            className="srd-default-node__out "
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Tests demos/demo-simple-flow/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-simple-flowindex.tsx 1`] = `
 <div
   className="srd-diagram srd-demo-canvas "
   onMouseDown={[Function]}
@@ -10220,7 +10082,145 @@ exports[`Storyshots Tests demos/demo-simple-flow/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-smart-routing/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-simpleindex.tsx 1`] = `
+<div
+  className="srd-diagram srd-demo-canvas "
+  onMouseDown={[Function]}
+  onWheel={[Function]}
+>
+  <svg
+    className="srd-link-layer "
+    style={
+      Object {
+        "transform": "translate(0px,0px) scale(1)",
+      }
+    }
+  />
+  <div
+    className="srd-node-layer "
+    style={
+      Object {
+        "transform": "translate(0px,0px) scale(1)",
+      }
+    }
+  >
+    <div
+      className="node srd-node "
+      data-nodeid="6"
+      style={
+        Object {
+          "left": 100,
+          "top": 100,
+        }
+      }
+    >
+      <div
+        className="srd-default-node "
+        style={
+          Object {
+            "background": "rgb(0,192,255)",
+          }
+        }
+      >
+        <div
+          className="srd-default-node__title "
+        >
+          <div
+            className="srd-default-node__name "
+          >
+            Node 1
+          </div>
+        </div>
+        <div
+          className="srd-default-node__ports "
+        >
+          <div
+            className="srd-default-node__in "
+          />
+          <div
+            className="srd-default-node__out "
+          >
+            <div
+              className="srd-default-port srd-default-port--out "
+            >
+              <div
+                className="name"
+              >
+                Out
+              </div>
+              <div
+                className="port srd-port "
+                data-name="7"
+                data-nodeid="6"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="node srd-node "
+      data-nodeid="9"
+      style={
+        Object {
+          "left": 400,
+          "top": 100,
+        }
+      }
+    >
+      <div
+        className="srd-default-node "
+        style={
+          Object {
+            "background": "rgb(192,255,0)",
+          }
+        }
+      >
+        <div
+          className="srd-default-node__title "
+        >
+          <div
+            className="srd-default-node__name "
+          >
+            Node 2
+          </div>
+        </div>
+        <div
+          className="srd-default-node__ports "
+        >
+          <div
+            className="srd-default-node__in "
+          >
+            <div
+              className="srd-default-port srd-default-port--in "
+            >
+              <div
+                className="port srd-port "
+                data-name="10"
+                data-nodeid="9"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              />
+              <div
+                className="name"
+              >
+                In
+              </div>
+            </div>
+          </div>
+          <div
+            className="srd-default-node__out "
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Tests demosdemo-smart-routingindex.tsx 1`] = `
 <div
   className="srd-demo-workspace"
 >
@@ -10526,7 +10526,7 @@ exports[`Storyshots Tests demos/demo-smart-routing/index.tsx 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tests demos/demo-zoom-to-fit/index.tsx 1`] = `
+exports[`Storyshots Tests demosdemo-zoom-to-fitindex.tsx 1`] = `
 <div
   className="srd-demo-workspace"
 >

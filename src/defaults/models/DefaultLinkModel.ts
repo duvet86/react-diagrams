@@ -53,23 +53,19 @@ export class DefaultLinkModel extends LinkModel<DefaultLinkModelListener> {
 
 	setWidth(width: number) {
 		this.width = width;
-		this.iterateListeners(
-			(listener: DefaultLinkModelListener, event: BaseEvent) => {
-				if (listener.widthChanged) {
-					listener.widthChanged({ ...event, width: width });
-				}
+		this.iterateListeners((listener: DefaultLinkModelListener, event: BaseEvent) => {
+			if (listener.widthChanged) {
+				listener.widthChanged({ ...event, width: width });
 			}
-		);
+		});
 	}
 
 	setColor(color: string) {
 		this.color = color;
-		this.iterateListeners(
-			(listener: DefaultLinkModelListener, event: BaseEvent) => {
-				if (listener.colorChanged) {
-					listener.colorChanged({ ...event, color: color });
-				}
+		this.iterateListeners((listener: DefaultLinkModelListener, event: BaseEvent) => {
+			if (listener.colorChanged) {
+				listener.colorChanged({ ...event, color: color });
 			}
-		);
+		});
 	}
 }
