@@ -5,15 +5,15 @@ import { DiagramEngine } from "./DiagramEngine";
 /**
  * @author Dylan Vorster
  */
-export interface BaseEvent<T extends BaseEntity = any> {
+export interface BaseEvent {
 	entity: BaseEntity<BaseListener>;
 	stopPropagation: () => any;
 	firing: boolean;
 	id: string;
 }
 
-export interface BaseListener<T extends BaseEntity = any> {
-	lockChanged?(event: BaseEvent<T> & { locked: boolean }): void;
+export interface BaseListener {
+	lockChanged?(event: BaseEvent & { locked: boolean }): void;
 }
 
 export type BaseEntityType = "node" | "link" | "port" | "point";

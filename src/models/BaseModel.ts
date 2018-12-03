@@ -4,9 +4,9 @@ import { BaseEvent } from "../BaseEntity";
 import { DiagramEngine } from "../DiagramEngine";
 
 export interface BaseModelListener extends BaseListener {
-	selectionChanged?(event: BaseEvent<BaseModel> & { isSelected: boolean }): void;
+	selectionChanged?(event: BaseEvent & { isSelected: boolean }): void;
 
-	entityRemoved?(event: BaseEvent<BaseModel>): void;
+	entityRemoved?(event: BaseEvent): void;
 }
 
 /**

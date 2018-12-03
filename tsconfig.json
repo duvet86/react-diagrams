@@ -14,14 +14,8 @@
 		"paths": {
 			"storm-react-diagrams": ["src/main.ts"]
 		},
-		"lib": [
-			"dom",
-			"es2015"
-		]
+		"lib": ["dom", "es2015"]
 	},
-	"exclude": [
-		"node_modules",
-		"**/*.spec.ts",
-		"./dist"
-	]
+	"include": ["./src/**/*"],
+	"exclude": ["node_modules", "**/*.spec.ts", "./dist"]
 }
