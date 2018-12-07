@@ -13,7 +13,10 @@ export interface LinkModelListener extends BaseModelListener {
 	targetPortChanged?(event: BaseEvent & { port: null | PortModel }): void;
 }
 
-export class LinkModel<T extends LinkModelListener = LinkModelListener> extends BaseModel<DiagramModel, T> {
+export class LinkModel<T extends LinkModelListener = {}> extends BaseModel<
+	DiagramModel,
+	T
+> {
 	sourcePort: PortModel | null;
 	targetPort: PortModel | null;
 	labels: LabelModel[];
@@ -22,14 +25,17 @@ export class LinkModel<T extends LinkModelListener = LinkModelListener> extends 
 
 	constructor(linkType: string = "default", id?: string) {
 		super(linkType, id);
-		this.points = [new PointModel(this, { x: 0, y: 0 }), new PointModel(this, { x: 0, y: 0 })];
+		this.points = [
+			new PointModel(this, { x: 0, y: 0 }),
+			new PointModel(this, { x: 0, y: 0 })
+		];
 		this.extras = {};
 		this.sourcePort = null;
 		this.targetPort = null;
 		this.labels = [];
 	}
 
-	deSerialize(ob, engine: DiagramEngine) {
+	deSerialize(ob: any, engine: DiagramEngine) {
 		super.deSerialize(ob, engine);
 		this.extras = ob.extras;
 		this.points = _.map(ob.points || [], (point: { x; y }) => {
@@ -78,7 +84,7 @@ export class LinkModel<T extends LinkModelListener = LinkModelListener> extends 
 		});
 	}
 
-	doClone(lookupTable = {}, clone) {
+	doClone(lookupTable = {}, clone: any) {
 		clone.setPoints(
 			_.map(this.getPoints(), (point: PointModel) => {
 				return point.clone(lookupTable);
@@ -121,20 +127,32 @@ export class LinkModel<T extends LinkModelListener = LinkModelListener> extends 
 	}
 
 	getPortForPoint(point: PointModel): PortModel {
-		if (this.sourcePort !== null && this.getFirstPoint().getID() === point.getID()) {
+		if (
+			this.sourcePort !== null &&
+			this.getFirstPoint().getID() === point.getID()
+		) {
 			return this.sourcePort;
 		}
-		if (this.targetPort !== null && this.getLastPoint().getID() === point.getID()) {
+		if (
+			this.targetPort !== null &&
+			this.getLastPoint().getID() === point.getID()
+		) {
 			return this.targetPort;
 		}
 		return null;
 	}
 
 	getPointForPort(port: PortModel): PointModel {
-		if (this.sourcePort !== null && this.sourcePort.getID() === port.getID()) {
+		if (
+			this.sourcePort !== null &&
+			this.sourcePort.getID() === port.getID()
+		) {
 			return this.getFirstPoint();
 		}
-		if (this.targetPort !== null && this.targetPort.getID() === port.getID()) {
+		if (
+			this.targetPort !== null &&
+			this.targetPort.getID() === port.getID()
+		) {
 			return this.getLastPoint();
 		}
 		return null;

@@ -12,7 +12,10 @@ export class DefaultLinkFactory extends AbstractLinkFactory<DefaultLinkModel> {
 		super("default");
 	}
 
-	generateReactWidget(diagramEngine: DiagramEngine, link: DefaultLinkModel): JSX.Element {
+	generateReactWidget(
+		diagramEngine: DiagramEngine,
+		link: DefaultLinkModel
+	): JSX.Element {
 		return React.createElement(DefaultLinkWidget, {
 			link: link,
 			diagramEngine: diagramEngine
@@ -23,7 +26,12 @@ export class DefaultLinkFactory extends AbstractLinkFactory<DefaultLinkModel> {
 		return new DefaultLinkModel();
 	}
 
-	generateLinkSegment(model: DefaultLinkModel, widget: DefaultLinkWidget, selected: boolean, path: string) {
+	generateLinkSegment(
+		model: DefaultLinkModel,
+		widget: DefaultLinkWidget,
+		selected: boolean,
+		path: string
+	) {
 		return (
 			<path
 				className={selected ? widget.bem("--path-selected") : ""}

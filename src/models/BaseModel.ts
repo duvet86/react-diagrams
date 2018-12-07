@@ -41,7 +41,7 @@ export class BaseModel<
 		return [];
 	}
 
-	public deSerialize(ob, engine: DiagramEngine) {
+	public deSerialize(ob: any, engine: DiagramEngine) {
 		super.deSerialize(ob, engine);
 		this.type = ob.type;
 		this.selected = ob.selected;

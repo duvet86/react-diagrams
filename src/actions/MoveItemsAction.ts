@@ -11,7 +11,9 @@ export class MoveItemsAction extends BaseAction {
 	constructor(mouseX: number, mouseY: number, diagramEngine: DiagramEngine) {
 		super(mouseX, mouseY);
 		this.moved = false;
-		diagramEngine.enableRepaintEntities(diagramEngine.getDiagramModel().getSelectedItems());
+		diagramEngine.enableRepaintEntities(
+			diagramEngine.getDiagramModel().getSelectedItems()
+		);
 		var selectedItems = diagramEngine.getDiagramModel().getSelectedItems();
 
 		//dont allow items which are locked to move
@@ -19,12 +21,14 @@ export class MoveItemsAction extends BaseAction {
 			return !diagramEngine.isModelLocked(item);
 		});
 
-		this.selectionModels = selectedItems.map((item: PointModel | NodeModel) => {
-			return {
-				model: item,
-				initialX: item.x,
-				initialY: item.y
-			};
-		});
+		this.selectionModels = selectedItems.map(
+			(item: PointModel | NodeModel) => {
+				return {
+					model: item,
+					initialX: item.x,
+					initialY: item.y
+				};
+			}
+		);
 	}
 }

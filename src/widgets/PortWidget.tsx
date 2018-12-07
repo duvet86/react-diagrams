@@ -23,7 +23,11 @@ export class PortWidget extends BaseWidget<PortProps, PortState> {
 	}
 
 	getClassName() {
-		return "port " + super.getClassName() + (this.state.selected ? this.bem("--selected") : "");
+		return (
+			"port " +
+			super.getClassName() +
+			(this.state.selected ? this.bem("--selected") : "")
+		);
 	}
 
 	render() {

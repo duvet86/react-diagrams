@@ -17,7 +17,10 @@ export interface BaseWidgetProps {
 	extraProps?: any;
 }
 
-export class BaseWidget<P extends BaseWidgetProps = BaseWidgetProps, S = any> extends React.Component<P, S> {
+export class BaseWidget<
+	P extends BaseWidgetProps = {},
+	S = any
+> extends React.Component<P, S> {
 	className: string;
 
 	constructor(name: string, props: P) {
@@ -31,7 +34,9 @@ export class BaseWidget<P extends BaseWidgetProps = BaseWidgetProps, S = any> ex
 
 	getClassName(): string {
 		return (
-			(this.props.baseClass || this.className) + " " + (this.props.className ? this.props.className + " " : "")
+			(this.props.baseClass || this.className) +
+			" " +
+			(this.props.className ? this.props.className + " " : "")
 		);
 	}
 

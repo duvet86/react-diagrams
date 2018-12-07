@@ -27,7 +27,7 @@ export class DefaultNodeModel extends NodeModel {
 		return this.addPort(new DefaultPortModel(false, Toolkit.UID(), label));
 	}
 
-	deSerialize(object, engine: DiagramEngine) {
+	deSerialize(object: any, engine: DiagramEngine) {
 		super.deSerialize(object, engine);
 		this.name = object.name;
 		this.color = object.color;

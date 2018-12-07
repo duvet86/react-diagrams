@@ -7,12 +7,17 @@ import { DefaultLabelWidget } from "../widgets/DefaultLabelWidget";
 /**
  * @author Dylan Vorster
  */
-export class DefaultLabelFactory extends AbstractLabelFactory<DefaultLabelModel> {
+export class DefaultLabelFactory extends AbstractLabelFactory<
+	DefaultLabelModel
+> {
 	constructor() {
 		super("default");
 	}
 
-	generateReactWidget(diagramEngine: DiagramEngine, label: DefaultLabelModel): JSX.Element {
+	generateReactWidget(
+		_: DiagramEngine,
+		label: DefaultLabelModel
+	): JSX.Element {
 		return <DefaultLabelWidget model={label} />;
 	}
 

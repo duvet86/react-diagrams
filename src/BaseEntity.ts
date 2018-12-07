@@ -18,7 +18,7 @@ export interface BaseListener {
 
 export type BaseEntityType = "node" | "link" | "port" | "point";
 
-export class BaseEntity<T extends BaseListener = BaseListener> {
+export class BaseEntity<T extends BaseListener = {}> {
 	public listeners: { [s: string]: T };
 	public id: string;
 	public locked: boolean;
