@@ -1,74 +1,75 @@
 /**
  * @author Dylan Vorster
  */
-import { LinkModel, LinkModelListener } from "../../models/LinkModel";
-import { BaseEvent } from "../../BaseEntity";
-import * as _ from "lodash";
+import { LinkModel, ILinkModelListener } from "../../models/LinkModel";
+import { IBaseEvent } from "../../BaseEntity";
+import { merge } from "lodash";
 import { DiagramEngine } from "../../DiagramEngine";
 import { DefaultLabelModel } from "./DefaultLabelModel";
 import { LabelModel } from "../../models/LabelModel";
 
-export interface DefaultLinkModelListener extends LinkModelListener {
-	colorChanged?(event: BaseEvent & { color: null | string }): void;
+export interface IDefaultLinkModelListener extends ILinkModelListener {
+  colorChanged?(event: IBaseEvent & { color: null | string }): void;
 
-	widthChanged?(event: BaseEvent & { width: 0 | number }): void;
+  widthChanged?(event: IBaseEvent & { width: 0 | number }): void;
 }
 
-export class DefaultLinkModel extends LinkModel<DefaultLinkModelListener> {
-	width: number;
-	color: string;
-	curvyness: number;
+export class DefaultLinkModel extends LinkModel<IDefaultLinkModelListener> {
+  public curvyness: number;
+  public width: number;
+  public color: string;
 
-	constructor(type: string = "default") {
-		super(type);
-		this.color = "rgba(255,255,255,0.5)";
-		this.width = 3;
-		this.curvyness = 50;
-	}
+  constructor(type: string = "default") {
+    super(type);
+    this.color = "rgba(255,255,255,0.5)";
+    this.width = 3;
+    this.curvyness = 50;
+  }
 
-	serialize() {
-		return _.merge(super.serialize(), {
-			width: this.width,
-			color: this.color,
-			curvyness: this.curvyness
-		});
-	}
+  public serialize() {
+    return merge(super.serialize(), {
+      width: this.width,
+      color: this.color,
+      curvyness: this.curvyness
+    });
+  }
 
-	deSerialize(ob: any, engine: DiagramEngine) {
-		super.deSerialize(ob, engine);
-		this.color = ob.color;
-		this.width = ob.width;
-		this.curvyness = ob.curvyness;
-	}
+  public deSerialize(ob: any, engine: DiagramEngine) {
+    super.deSerialize(ob, engine);
+    this.color = ob.color;
+    this.width = ob.width;
+    this.curvyness = ob.curvyness;
+  }
 
-	addLabel(label: LabelModel | string) {
-		if (label instanceof LabelModel) {
-			return super.addLabel(label);
-		}
-		let labelOb = new DefaultLabelModel();
-		labelOb.setLabel(label);
-		return super.addLabel(labelOb);
-	}
+  public addLabel(label: LabelModel | string) {
+    if (label instanceof LabelModel) {
+      return super.addLabel(label);
+    }
+    const labelOb = new DefaultLabelModel();
+    labelOb.setLabel(label);
 
-	setWidth(width: number) {
-		this.width = width;
-		this.iterateListeners(
-			(listener: DefaultLinkModelListener, event: BaseEvent) => {
-				if (listener.widthChanged) {
-					listener.widthChanged({ ...event, width: width });
-				}
-			}
-		);
-	}
+    return super.addLabel(labelOb);
+  }
 
-	setColor(color: string) {
-		this.color = color;
-		this.iterateListeners(
-			(listener: DefaultLinkModelListener, event: BaseEvent) => {
-				if (listener.colorChanged) {
-					listener.colorChanged({ ...event, color: color });
-				}
-			}
-		);
-	}
+  public setWidth(width: number) {
+    this.width = width;
+    this.iterateListeners(
+      (listener: IDefaultLinkModelListener, event: IBaseEvent) => {
+        if (listener.widthChanged) {
+          listener.widthChanged({ ...event, width });
+        }
+      }
+    );
+  }
+
+  public setColor(color: string) {
+    this.color = color;
+    this.iterateListeners(
+      (listener: IDefaultLinkModelListener, event: IBaseEvent) => {
+        if (listener.colorChanged) {
+          listener.colorChanged({ ...event, color });
+        }
+      }
+    );
+  }
 }

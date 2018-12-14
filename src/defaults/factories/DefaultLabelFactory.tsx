@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { DiagramEngine } from "../../DiagramEngine";
 import { AbstractLabelFactory } from "../../factories/AbstractLabelFactory";
 import { DefaultLabelModel } from "../models/DefaultLabelModel";
@@ -8,20 +8,20 @@ import { DefaultLabelWidget } from "../widgets/DefaultLabelWidget";
  * @author Dylan Vorster
  */
 export class DefaultLabelFactory extends AbstractLabelFactory<
-	DefaultLabelModel
+  DefaultLabelModel
 > {
-	constructor() {
-		super("default");
-	}
+  constructor() {
+    super("default");
+  }
 
-	generateReactWidget(
-		_: DiagramEngine,
-		label: DefaultLabelModel
-	): JSX.Element {
-		return <DefaultLabelWidget model={label} />;
-	}
+  public generateReactWidget(
+    _: DiagramEngine,
+    label: DefaultLabelModel
+  ): JSX.Element {
+    return <DefaultLabelWidget model={label} />;
+  }
 
-	getNewInstance(initialConfig?: any): DefaultLabelModel {
-		return new DefaultLabelModel();
-	}
+  public getNewInstance(initialConfig?: any): DefaultLabelModel {
+    return new DefaultLabelModel();
+  }
 }

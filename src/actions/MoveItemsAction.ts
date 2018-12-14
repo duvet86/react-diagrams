@@ -1,34 +1,33 @@
 import { BaseAction } from "./BaseAction";
-import { SelectionModel } from "../models/SelectionModel";
+import { ISelectionModel } from "../models/SelectionModel";
 import { PointModel } from "../models/PointModel";
 import { NodeModel } from "../models/NodeModel";
 import { DiagramEngine } from "../DiagramEngine";
+import { BaseModel } from "../models/BaseModel";
 
 export class MoveItemsAction extends BaseAction {
-	selectionModels: SelectionModel[];
-	moved: boolean;
+  public selectionModels: ISelectionModel[];
+  public moved: boolean;
 
-	constructor(mouseX: number, mouseY: number, diagramEngine: DiagramEngine) {
-		super(mouseX, mouseY);
-		this.moved = false;
-		diagramEngine.enableRepaintEntities(
-			diagramEngine.getDiagramModel().getSelectedItems()
-		);
-		var selectedItems = diagramEngine.getDiagramModel().getSelectedItems();
+  constructor(mouseX: number, mouseY: number, diagramEngine: DiagramEngine) {
+    super(mouseX, mouseY);
+    this.moved = false;
+    diagramEngine.enableRepaintEntities(
+      diagramEngine.getDiagramModel().getSelectedItems()
+    );
+    let selectedItems = diagramEngine.getDiagramModel().getSelectedItems();
 
-		//dont allow items which are locked to move
-		selectedItems = selectedItems.filter(item => {
-			return !diagramEngine.isModelLocked(item);
-		});
+    // Dont allow items which are locked to move.
+    selectedItems = selectedItems.filter(item => {
+      return !diagramEngine.isModelLocked(item);
+    });
 
-		this.selectionModels = selectedItems.map(
-			(item: PointModel | NodeModel) => {
-				return {
-					model: item,
-					initialX: item.x,
-					initialY: item.y
-				};
-			}
-		);
-	}
+    this.selectionModels = selectedItems.map((item: BaseModel) => {
+      return {
+        model: item,
+        initialX: (item as PointModel | NodeModel).x,
+        initialY: (item as PointModel | NodeModel).y
+      };
+    });
+  }
 }

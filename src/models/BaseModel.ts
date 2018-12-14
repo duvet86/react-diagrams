@@ -1,85 +1,88 @@
-import { BaseEntity, BaseListener } from "../BaseEntity";
-import * as _ from "lodash";
-import { BaseEvent } from "../BaseEntity";
+import { BaseEntity, IBaseListener } from "../BaseEntity";
+import { IBaseEvent } from "../BaseEntity";
 import { DiagramEngine } from "../DiagramEngine";
 
-export interface BaseModelListener extends BaseListener {
-	selectionChanged?(event: BaseEvent & { isSelected: boolean }): void;
-
-	entityRemoved?(event: BaseEvent): void;
+export interface IBaseModelListener extends IBaseListener {
+  selectionChanged?(event: IBaseEvent & { isSelected: boolean }): void;
+  entityRemoved?(event: IBaseEvent): void;
 }
 
 /**
  * @author Dylan Vorster
  */
 export class BaseModel<
-	X extends BaseEntity = BaseEntity,
-	T extends BaseModelListener = BaseModelListener
+  X extends BaseEntity = BaseEntity,
+  T extends IBaseModelListener = IBaseModelListener
 > extends BaseEntity<T> {
-	type: string;
-	selected: boolean;
-	parent: X;
+  public parent: X | undefined;
+  public type: string | undefined;
 
-	constructor(type?: string, id?: string) {
-		super(id);
-		this.type = type;
-		this.selected = false;
-	}
+  private selected: boolean;
 
-	public getParent(): X {
-		return this.parent;
-	}
+  constructor(type?: string, id?: string) {
+    super(id);
+    this.type = type;
+    this.selected = false;
+  }
 
-	public setParent(parent: X) {
-		this.parent = parent;
-	}
+  public getParent(): X | undefined {
+    return this.parent;
+  }
 
-	public getSelectedEntities(): BaseModel<any, T>[] {
-		if (this.isSelected()) {
-			return [this];
-		}
-		return [];
-	}
+  public setParent(parent: X) {
+    this.parent = parent;
+  }
 
-	public deSerialize(ob: any, engine: DiagramEngine) {
-		super.deSerialize(ob, engine);
-		this.type = ob.type;
-		this.selected = ob.selected;
-	}
+  public removeParent() {
+    this.parent = undefined;
+  }
 
-	public serialize() {
-		return _.merge(super.serialize(), {
-			type: this.type,
-			selected: this.selected
-		});
-	}
+  public getSelectedEntities(): Array<BaseModel<any, T>> {
+    if (this.isSelected()) {
+      return [this];
+    }
+    return [];
+  }
 
-	public getType(): string {
-		return this.type;
-	}
+  public deSerialize(ob: any, engine: DiagramEngine) {
+    super.deSerialize(ob, engine);
+    this.type = ob.type;
+    this.selected = ob.selected;
+  }
 
-	public getID(): string {
-		return this.id;
-	}
+  public serialize() {
+    return Object.assign(super.serialize(), {
+      type: this.type,
+      selected: this.selected
+    });
+  }
 
-	public isSelected(): boolean {
-		return this.selected;
-	}
+  public getType(): string | undefined {
+    return this.type;
+  }
 
-	public setSelected(selected: boolean = true) {
-		this.selected = selected;
-		this.iterateListeners((listener, event) => {
-			if (listener.selectionChanged) {
-				listener.selectionChanged({ ...event, isSelected: selected });
-			}
-		});
-	}
+  public getID(): string {
+    return this.id;
+  }
 
-	public remove() {
-		this.iterateListeners((listener, event) => {
-			if (listener.entityRemoved) {
-				listener.entityRemoved(event);
-			}
-		});
-	}
+  public isSelected(): boolean {
+    return this.selected;
+  }
+
+  public setSelected(selected: boolean = true) {
+    this.selected = selected;
+    this.iterateListeners((listener, event) => {
+      if (listener.selectionChanged) {
+        listener.selectionChanged({ ...event, isSelected: selected });
+      }
+    });
+  }
+
+  public remove() {
+    this.iterateListeners((listener, event) => {
+      if (listener.entityRemoved) {
+        listener.entityRemoved(event);
+      }
+    });
+  }
 }

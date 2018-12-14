@@ -3,10 +3,10 @@ import { DiagramEngine } from "../DiagramEngine";
 import { AbstractFactory } from "./AbstractFactory";
 
 export abstract class AbstractNodeFactory<
-	T extends NodeModel = NodeModel
+  T extends NodeModel = NodeModel
 > extends AbstractFactory<T> {
-	abstract generateReactWidget(
-		diagramEngine: DiagramEngine,
-		node: T
-	): JSX.Element;
+  public abstract generateReactWidget(
+    diagramEngine: DiagramEngine,
+    node: T
+  ): JSX.Element;
 }

@@ -1,31 +1,18 @@
 {
 	"defaultSeverity": "error",
-	"extends": [
-		"tslint:recommended"
-	],
+	"extends": ["tslint:recommended", "tslint-react"],
 	"jsRules": {},
 	"rules": {
-		"member-access": false,
-		"comment-format": false,
-		"max-line-length": false,
-		"object-literal-sort-keys": false,
-		"quotemark": [true, "double", "jsx-double"],
-		"arrow-parens": false,
-		"indent": [true, "tabs", 2],
-		"semicolon": false,
-		"object-literal-key-quotes": [true, "as-needed"],
-		"no-var-keyword": false,
-		"jsdoc-format": false,
-		"prefer-const": false,
-		"interface-name": false,
-		"array-type": false,
-		"trailing-comma": false,
-		"one-line": false,
-		"object-literal-shorthand": false,
-		"no-string-literal": false,
-		"ordered-imports": false,
-		"prefer-for-of": false,
-		"no-empty-interface": false
+	  "trailing-comma": false,
+	  "object-literal-key-quotes": [true, "as-needed"],
+	  "arrow-parens": [true, "ban-single-arg-parens"],
+	  "semicolon": [true, "always", "ignore-bound-class-methods"],
+	  "jsx-no-multiline-js": false,
+	  "jsx-boolean-value": false,
+	  "object-literal-sort-keys": false,
+	  "ordered-imports": false,
+	  "jsx-curly-spacing": { "when": "never" }
 	},
 	"rulesDirectory": []
-}
+  }
+  
