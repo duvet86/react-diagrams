@@ -1,6 +1,6 @@
 {
   "name": "storm-react-diagrams2",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/duvet86/react-diagrams"
@@ -16,7 +16,7 @@
     "nodes"
   ],
   "main": "./dist/main.js",
-  "typings": "./dist/@types/src/main",
+  "typings": "./dist/@types/main",
   "author": "dylanvorster",
   "scripts": {
     "build:ts": "webpack",

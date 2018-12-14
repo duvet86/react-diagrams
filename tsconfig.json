@@ -10,7 +10,8 @@
     "allowJs": false /* Allow javascript files to be compiled. */,
     "jsx": "react" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
     "sourceMap": true /* Generates corresponding '.map' file. */,
-    "outDir": "@types" /* Redirect output structure to the directory. */,
+    "outDir": "./dist/@types" /* Redirect output structure to the directory. */,
+    "declaration": true /* Generates corresponding .d.ts file. */,
 
     /* Strict Type-Checking Options */
     "strict": true /* Enable all strict type checking options. Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictNullChecks, --strictFunctionTypes and --strictPropertyInitialization */,
@@ -30,5 +31,5 @@
     "skipLibCheck": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/*.spec.ts", "./dist"]
 }
