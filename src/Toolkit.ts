@@ -1,8 +1,8 @@
 // tslint:disable no-bitwise
-import closest from "closest";
 import { PointModel } from "./models/PointModel";
 import { ROUTING_SCALING_FACTOR } from "./routing/PathFinding";
 import Path from "paths-js/path";
+
 /**
  * @author Dylan Vorster
  */
@@ -24,19 +24,6 @@ export class Toolkit {
       const v = c === "x" ? r : (r & 0x3) | 0x8;
       return v.toString(16);
     });
-  }
-
-  /**
-   * Finds the closest element as a polyfill
-   *
-   * @param  {Element} element  [description]
-   * @param  {string}  selector [description]
-   */
-  public static closest(element: Element, selector: string) {
-    if (document.body.closest) {
-      return element.closest(selector);
-    }
-    return closest(element, selector);
   }
 
   public static generateLinePath(

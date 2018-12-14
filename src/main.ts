@@ -1,6 +1,6 @@
-/**
- * @author Dylan Vorster
- */
+import polyfill from "./polyfill";
+
+polyfill();
 
 export * from "./Toolkit";
 export * from "./BaseEntity";

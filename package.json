@@ -32,7 +32,6 @@
     "prepublishOnly": "yarn run build:ts:prod && yarn run build:sass:prod"
   },
   "dependencies": {
-    "closest": "^0.0.1",
     "lodash": "^4.17.11",
     "pathfinding": "^0.4.18",
     "paths-js": "^0.4.7",

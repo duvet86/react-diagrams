@@ -11,6 +11,7 @@ import { NodeModel } from "./NodeModel";
 import { PortModel } from "./PortModel";
 import { BaseModel, IBaseModelListener } from "./BaseModel";
 import { PointModel } from "./PointModel";
+
 /**
  * @author Dylan Vorster
  *
@@ -19,17 +20,13 @@ export interface IDiagramListener extends IBaseListener {
   nodesUpdated?(
     event: IBaseEvent & { node: NodeModel; isCreated: boolean }
   ): void;
-
   linksUpdated?(
     event: IBaseEvent & { link: LinkModel; isCreated: boolean }
   ): void;
-
   offsetUpdated?(
     event: IBaseEvent & { offsetX: number; offsetY: number }
   ): void;
-
   zoomUpdated?(event: IBaseEvent & { zoom: number }): void;
-
   gridUpdated?(event: IBaseEvent & { size: number }): void;
 }
 
@@ -84,7 +81,7 @@ export class DiagramModel extends BaseEntity<IDiagramListener> {
     this.zoom = object.zoom;
     this.gridSize = object.gridSize;
 
-    // deserialize nodes
+    // Deserialize nodes.
     forEach(object.nodes, (node: any) => {
       const nodeOb = diagramEngine
         .getNodeFactory(node.type)
@@ -94,7 +91,7 @@ export class DiagramModel extends BaseEntity<IDiagramListener> {
       this.addNode(nodeOb);
     });
 
-    // deserialze links
+    // Deserialze links
     forEach(object.links, (link: any) => {
       const linkOb = diagramEngine.getLinkFactory(link.type).getNewInstance();
       linkOb.setParent(this);

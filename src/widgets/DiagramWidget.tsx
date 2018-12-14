@@ -144,12 +144,12 @@ export class DiagramWidget extends BaseWidget<IDiagramProps, IDiagramState> {
     const diagramModel = this.props.diagramEngine.diagramModel;
 
     // Is it a port?
-    let element = Toolkit.closest(target, ".port[data-name]");
+    let element = target.closest(".port[data-name]");
     if (element) {
-      const nodeElement = Toolkit.closest(
-        target,
-        ".node[data-nodeid]"
-      ) as HTMLElement;
+      const nodeElement = target.closest(".node[data-nodeid]");
+      if (nodeElement == null) {
+        throw new Error();
+      }
 
       const nodeId = nodeElement.getAttribute("data-nodeid");
       const name = element.getAttribute("data-name");
@@ -168,7 +168,7 @@ export class DiagramWidget extends BaseWidget<IDiagramProps, IDiagramState> {
     }
 
     // Look for a point.
-    element = Toolkit.closest(target, ".point[data-id]");
+    element = target.closest(".point[data-id]");
     if (element) {
       const linkid = element.getAttribute("data-linkid");
       const id = element.getAttribute("data-id");
@@ -191,7 +191,7 @@ export class DiagramWidget extends BaseWidget<IDiagramProps, IDiagramState> {
     }
 
     // Look for a link.
-    element = Toolkit.closest(target, "[data-linkid]");
+    element = target.closest("[data-linkid]");
     if (element) {
       const linkid = element.getAttribute("data-linkid");
       if (linkid == null) {
@@ -209,7 +209,7 @@ export class DiagramWidget extends BaseWidget<IDiagramProps, IDiagramState> {
     }
 
     // Look for a node.
-    element = Toolkit.closest(target, ".node[data-nodeid]");
+    element = target.closest(".node[data-nodeid]");
     if (element) {
       const nodeId = element.getAttribute("data-nodeid");
       if (nodeId == null) {
