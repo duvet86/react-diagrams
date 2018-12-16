@@ -37,7 +37,7 @@ export class BaseEntity<T extends IBaseListener = IBaseListener> {
   }
 
   public clone(lookupTable: { [s: string]: any } = {}) {
-    // try and use an existing clone first
+    // Try and use an existing clone first.
     if (lookupTable[this.id]) {
       return lookupTable[this.id];
     }
@@ -76,7 +76,7 @@ export class BaseEntity<T extends IBaseListener = IBaseListener> {
 
     for (const i in this.listeners) {
       if (this.listeners.hasOwnProperty(i)) {
-        // propagation stopped
+        // Propagation stopped.
         if (!event.firing) {
           return;
         }

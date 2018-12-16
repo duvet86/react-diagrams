@@ -3,7 +3,6 @@ import { DiagramEngine } from "../DiagramEngine";
 import { forEach, some, values } from "lodash";
 import { LinkLayerWidget } from "./layers/LinkLayerWidget";
 import { NodeLayerWidget } from "./layers/NodeLayerWidget";
-import { Toolkit } from "../Toolkit";
 import { BaseAction } from "../actions/BaseAction";
 import { MoveCanvasAction } from "../actions/MoveCanvasAction";
 import { MoveItemsAction } from "../actions/MoveItemsAction";
@@ -19,18 +18,18 @@ import { BaseWidget, IBaseWidgetProps } from "./BaseWidget";
 export interface IDiagramProps extends IBaseWidgetProps {
   diagramEngine: DiagramEngine;
 
-  allowLooseLinks?: boolean;
-  allowCanvasTranslation?: boolean;
-  allowCanvasZoom?: boolean;
-  inverseZoom?: boolean;
-  maxNumberPointsPerLink?: number;
-  smartRouting?: boolean;
+  allowLooseLinks: boolean;
+  allowCanvasTranslation: boolean;
+  allowCanvasZoom: boolean;
+  inverseZoom: boolean;
+  maxNumberPointsPerLink: number;
+  smartRouting: boolean;
 
   actionStartedFiring?: (action: BaseAction) => boolean;
   actionStillFiring?: (action: BaseAction) => void;
   actionStoppedFiring?: (action: BaseAction) => void;
 
-  deleteKeys?: number[];
+  deleteKeys: number[];
 }
 
 export interface IDiagramState {
@@ -46,16 +45,15 @@ export interface IDiagramState {
  * @author Dylan Vorster
  */
 export class DiagramWidget extends BaseWidget<IDiagramProps, IDiagramState> {
-  //   public static defaultProps: IDiagramProps = {
-  //     diagramEngine: null,
-  //     allowLooseLinks: true,
-  //     allowCanvasTranslation: true,
-  //     allowCanvasZoom: true,
-  //     inverseZoom: false,
-  //     maxNumberPointsPerLink: Infinity, // backwards compatible default
-  //     smartRouting: false,
-  //     deleteKeys: [46, 8]
-  //   };
+  public static defaultProps: Partial<IDiagramProps> = {
+    allowLooseLinks: true,
+    allowCanvasTranslation: true,
+    allowCanvasZoom: true,
+    inverseZoom: false,
+    maxNumberPointsPerLink: Infinity, // Backwards compatible default.
+    smartRouting: false,
+    deleteKeys: [46, 8]
+  };
 
   constructor(props: IDiagramProps) {
     super("srd-diagram", props);
@@ -507,9 +505,7 @@ export class DiagramWidget extends BaseWidget<IDiagramProps, IDiagramState> {
 
   public render() {
     const diagramEngine = this.props.diagramEngine;
-    diagramEngine.setMaxNumberPointsPerLink(
-      this.props.maxNumberPointsPerLink || Infinity
-    );
+    diagramEngine.setMaxNumberPointsPerLink(this.props.maxNumberPointsPerLink);
     diagramEngine.setSmartRoutingStatus(this.props.smartRouting || false);
 
     return (

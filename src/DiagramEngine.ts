@@ -25,6 +25,7 @@ import { DefaultPortFactory } from "./defaults/factories/DefaultPortFactory";
 import { LabelModel } from "./models/LabelModel";
 import { DefaultLabelFactory } from "./defaults/factories/DefaultLabelFactory";
 import { Toolkit } from "./Toolkit";
+
 /**
  * @author Dylan Vorster
  */
@@ -71,15 +72,6 @@ export class DiagramEngine extends BaseEntity<IDiagramEngineListener> {
     this.canvas = null;
     this.paintableWidgets = null;
     this.linksThatHaveInitiallyRendered = {};
-
-    if (Toolkit.TESTING) {
-      Toolkit.TESTING_UID = 0;
-
-      // Pop it onto the window so our E2E helpers can find it.
-      if (window) {
-        (window as any).diagram_instance = this;
-      }
-    }
   }
 
   public installDefaultFactories() {
