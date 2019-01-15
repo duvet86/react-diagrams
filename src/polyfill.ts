@@ -1,4 +1,4 @@
-export default function run() {
+export default () => {
   if (!document.body.closest) {
     if (!Element.prototype.matches) {
       Element.prototype.matches = Element.prototype.webkitMatchesSelector;
@@ -20,4 +20,4 @@ export default function run() {
       };
     }
   }
-}
+};

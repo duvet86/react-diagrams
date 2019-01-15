@@ -122,7 +122,7 @@ export class DiagramModel extends BaseEntity<IDiagramListener> {
       if (ignore && ignore.getID() === element.getID()) {
         return;
       }
-      element.setSelected(false); // TODO dont fire the listener
+      element.setSelected(false); // TODO dont fire the listener.
     });
   }
 
@@ -286,6 +286,7 @@ export class DiagramModel extends BaseEntity<IDiagramListener> {
         listener.linksUpdated({ ...event, link, isCreated: true });
       }
     });
+
     return link;
   }
 
@@ -301,6 +302,7 @@ export class DiagramModel extends BaseEntity<IDiagramListener> {
         listener.nodesUpdated({ ...event, node, isCreated: true });
       }
     });
+
     return node;
   }
 

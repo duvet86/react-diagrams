@@ -24,7 +24,6 @@ import { ROUTING_SCALING_FACTOR } from "./routing/PathFinding";
 import { DefaultPortFactory } from "./defaults/factories/DefaultPortFactory";
 import { LabelModel } from "./models/LabelModel";
 import { DefaultLabelFactory } from "./defaults/factories/DefaultLabelFactory";
-import { Toolkit } from "./Toolkit";
 
 /**
  * @author Dylan Vorster
@@ -55,10 +54,10 @@ export class DiagramEngine extends BaseEntity<IDiagramEngineListener> {
   private maxNumberPointsPerLink?: number;
   private smartRouting?: boolean;
 
-  // calculated only when smart routing is active
+  // Calculated only when smart routing is active.
   private canvasMatrix: number[][] = [];
   private routingMatrix: number[][] = [];
-  // used when at least one element has negative coordinates
+  // Used when at least one element has negative coordinates.
   private hAdjustmentFactor: number = 0;
   private vAdjustmentFactor: number = 0;
 
