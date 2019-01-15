@@ -22,7 +22,7 @@ export class DefaultLinkFactory extends AbstractLinkFactory<DefaultLinkModel> {
     });
   }
 
-  public getNewInstance(initialConfig?: any): DefaultLinkModel {
+  public getNewInstance(): DefaultLinkModel {
     return new DefaultLinkModel();
   }
 

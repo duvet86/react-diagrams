@@ -6,7 +6,7 @@ export class DefaultPortFactory extends AbstractPortFactory<DefaultPortModel> {
     super("default");
   }
 
-  public getNewInstance(initialConfig?: any): DefaultPortModel {
+  public getNewInstance(): DefaultPortModel {
     return new DefaultPortModel(true, "unknown");
   }
 }

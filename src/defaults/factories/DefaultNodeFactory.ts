@@ -1,5 +1,5 @@
-import { DefaultNodeModel } from "../models/DefaultNodeModel";
 import React from "react";
+import { DefaultNodeModel } from "../models/DefaultNodeModel";
 import { DefaultNodeWidget } from "../widgets/DefaultNodeWidget";
 import { DiagramEngine } from "../../DiagramEngine";
 import { AbstractNodeFactory } from "../../factories/AbstractNodeFactory";
@@ -21,7 +21,7 @@ export class DefaultNodeFactory extends AbstractNodeFactory<DefaultNodeModel> {
     });
   }
 
-  public getNewInstance(initialConfig?: any): DefaultNodeModel {
+  public getNewInstance(): DefaultNodeModel {
     return new DefaultNodeModel();
   }
 }

@@ -21,7 +21,7 @@ export class DefaultLabelFactory extends AbstractLabelFactory<
     return <DefaultLabelWidget model={label} />;
   }
 
-  public getNewInstance(initialConfig?: any): DefaultLabelModel {
+  public getNewInstance(): DefaultLabelModel {
     return new DefaultLabelModel();
   }
 }
