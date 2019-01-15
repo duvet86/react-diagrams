@@ -1,5 +1,5 @@
-import PathFinding from "../../src/routing/PathFinding";
-import { DiagramEngine } from "../../src/main";
+import PathFinding from "../PathFinding";
+import { DiagramEngine } from "../../main";
 
 describe("calculating start and end points", () => {
   let pathFinding: PathFinding;

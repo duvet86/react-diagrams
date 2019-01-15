@@ -1,26 +1,13 @@
-const path = require("path");
-
 module.exports = {
   verbose: true,
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  resolver: require.resolve("jest-pnp-resolver"),
+  roots: ["<rootDir>/src"],
   transform: {
-    ".*test_loader.*": path.join(
-      __dirname,
-      "tests",
-      "helpers",
-      "storybook-loader.js"
-    ),
     "^.+\\.tsx?$": "ts-jest"
   },
-  moduleNameMapper: {
-    "\\.(scss|css|png)$": path.join(
-      __dirname,
-      "tests",
-      "helpers",
-      "css-mock.js"
-    ),
-    "storm-react-diagrams": path.join(__dirname, "src", "main")
-  },
-  roots: [__dirname + "/tests"],
-  testMatch: ["**/*.test.tsx"]
+  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+  testURL: "http://localhost",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  modulePaths: ["<rootDir>/src/"],
+  collectCoverageFrom: ["src/**/*.{ts,tsx}"]
 };

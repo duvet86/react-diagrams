@@ -24,8 +24,7 @@
     "build:sass:prod": "node-sass --output-style compressed ./src/sass/main.scss > ./dist/style.min.css",
     "pretty": "prettier --use-tabs --write \"{src,demos,tests}/**/*.{ts,tsx}\" --print-width 120",
     "lint": "tslint -p .",
-    "test:ci": "rm -rf ./dist && node ./tests/e2e/generate-e2e.js && jest --no-cache",
-    "test": "jest --no-cache",
+    "test": "jest --colors",
     "prepublishOnly": "yarn run build:ts:prod && yarn run build:sass:prod"
   },
   "dependencies": {
@@ -48,6 +47,8 @@
     "file-loader": "^3.0.1",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
+    "jest-pnp-resolver": "^1.0.2",
+    "jest-resolve": "^23.6.0",
     "json-beautify": "^1.0.1",
     "node-sass": "^4.11.0",
     "react-dom": "^16.7.0",
